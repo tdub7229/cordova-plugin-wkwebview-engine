@@ -172,7 +172,7 @@ static void * KVOContext = &KVOContext;
 - (BOOL)shouldReloadWebView:(NSURL*)location title:(NSString*)title
 {
     BOOL title_is_nil = (title == nil);
-    BOOL location_is_blank = [[location absoluteString] isEqualToString:@"about:blank"];
+    BOOL location_is_blank = (location == nil) || [[location absoluteString] isEqualToString:@"about:blank"];
     
     BOOL reload = (title_is_nil || location_is_blank);
     
